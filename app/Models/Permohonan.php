@@ -62,7 +62,7 @@ class Permohonan extends Model
 
     public function log()
     {
-        return $this->hasMany(PermohonanLog::class);
+        return $this->hasMany(PermohonanLog::class)->latest('waktu');
     }
 
     public function statusLog()

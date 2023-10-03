@@ -88,7 +88,9 @@ class PermohonanBaru extends Component
         }
 
         $this->validate($rules);
-
+        if ($this->jenis_pemohon === Pemohon::JENIS_PERORANGAN) {
+            $this->data = [];
+        }
         $permohonanData = [
             'jenis_pemohon' => $this->jenis_pemohon,
             'permohonan' => $this->permohonan,
@@ -139,7 +141,10 @@ class PermohonanBaru extends Component
                 'status' => Permohonan::STATUS_VERIFIKASI
             ]);
             $this->validasiLog($permohonan);
-            $permohonan->log()->create(['status' => Permohonan::STATUS_VERIFIKASI]);
+            $permohonan->log()->create([
+                'status' => Permohonan::STATUS_VERIFIKASI,
+                'waktu' => now()->add('10s')
+            ]);
             PermohonanJob::dispatch($permohonan);
             session()->flash('global-info', 'Permohonan telah akan segera diverifikasi.');
             $this->redirect(route('app.permohonan-saya'), true);

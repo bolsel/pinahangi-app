@@ -12,7 +12,7 @@
 <div class="main-auth">
   <div class="main-auth__side">
     <div class="absolute bg-gradient-to-b from-secondary to-primary opacity-75 inset-0 z-0"></div>
-    <div class="w-full  z-10 flex flex-col items-center">
+    <a href="{{route('frontend.index')}}" class="w-full  z-10 flex flex-col items-center">
       <div class="sm:text-4xl xl:text-5xl font-bold leading-tight mb-6 font-intro">PINAHANGI
       </div>
       <div class="text-gray-200 font-normal text-xl tracking-wider">A<strong
@@ -27,7 +27,7 @@
           class="">G</strong>ITALISASI <strong
           class="">I</strong>NFORMASI
       </div>
-    </div>
+    </a>
     <ul class="circles">
       <li></li>
       <li></li>

@@ -20,7 +20,7 @@
           name="email"
           required
           class="f-input"
-          type="text" placeholder="*****" value="">
+          type="text" placeholder="" value="">
         @error('email')
         <div class="text-error p-2">
           {{ $message }}

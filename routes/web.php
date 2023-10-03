@@ -12,9 +12,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['as' => 'frontend.'], function () {
+    $frontendClass = \App\Http\Controllers\FrontendController::class;
+    Route::get('/', [$frontendClass, 'index'])->name('index');
+    Route::any('/status-permohonan', [$frontendClass, 'statusPermohonan'])
+        ->name('status-permohonan');
 });
 
 Route::group([
