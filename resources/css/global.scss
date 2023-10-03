@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body, html {
+        @apply font-default bg-base-100;
+    }
+
+    @font-face {
+        font-family: "Intro";
+        font-weight: normal;
+        src: url(./fonts/Intro.otf) format("opentype");
+    }
+}
+
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+@mixin view-sm {
+    @media (min-width: $breakpoint-sm) {
+        @content;
+    }
+}
+
+@mixin view-md {
+    @media (min-width: $breakpoint-md) {
+        @content;
+    }
+}
+
+@mixin view-lg {
+    @media (min-width: $breakpoint-lg) {
+        @content;
+    }
+}
+
+@mixin view-xl {
+    @media (min-width: $breakpoint-xl) {
+        @content;
+    }
+}
+
+@mixin view-2xl {
+    @media (min-width: $breakpoint-2xl) {
+        @content;
+    }
+}
+
+@mixin view-sm-max {
+    @media (max-width: $breakpoint-sm) {
+        @content;
+    }
+}
+
+@mixin view-md-max {
+    @media (max-width: $breakpoint-md) {
+        @content;
+    }
+}
+
+@mixin view-lg-max {
+    @media (max-width: $breakpoint-lg) {
+        @content;
+    }
+}
+
+@mixin view-xl-max {
+    @media (max-width: $breakpoint-xl) {
+        @content;
+    }
+}
+
+@mixin view-2xl-max {
+    @media (max-width: $breakpoint-2xl) {
+        @content;
+    }
+}
