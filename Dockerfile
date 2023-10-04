@@ -100,6 +100,5 @@ RUN chown -R nobody.nobody /run && \
     chown -R nobody.nobody /var/lib/nginx && \
     chown -R nobody.nobody /var/log/nginx
 
-VOLUME /srv/storage
 # Switch to use a non-root user from here on
 USER nobody
