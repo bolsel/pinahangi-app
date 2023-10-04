@@ -6,7 +6,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <title> {{$title}} | {{ config('app.name', 'PINAHANGI') }}</title>
   <x-google-font font="raleway"/>
-  @vite(['resources/css/guest.scss', 'resources/js/auth.js'])
+  @vite(['resources/css/auth.scss', 'resources/js/auth.js'])
 </head>
 <body>
 <div class="main-auth">
