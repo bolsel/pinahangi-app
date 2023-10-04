@@ -87,7 +87,7 @@ HEALTHCHECK --interval=10s --timeout=3s --retries=3 CMD curl --silent --fail htt
 ENTRYPOINT ["docker-entrypoint"]
 CMD ["php-fpm"]
 
-COPY --from=assets_build /srv/public/build ./public
+COPY --from=assets_build /srv/public/build ./public/build
 RUN rm -Rf docker/
 
 RUN set -eux; \
