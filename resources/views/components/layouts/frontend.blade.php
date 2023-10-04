@@ -13,9 +13,9 @@
   <x-google-font font="raleway"/>
   @vite(['resources/css/frontend.scss', 'resources/js/frontend.js'])
 </head>
-<body>
+<body x-data="front_home" @scroll.window="function(){scrollWatch(this)}">
 <div class="main-front">
-  <div class="h-screen flex flex-col" style="">
+  <div class="min-h-screen flex flex-col" style="">
     <div id="navbar-wrapper" x-ref="navWrapper" class="navbar-wrapper">
       <nav class="navbar max-w-6xl">
         <div class="flex-1 md:gap-1 lg:gap-2 h-full">
@@ -63,7 +63,7 @@
             <div class="mt-4 flex flex-1 justify-center space-x-2 lg:mt-6 lg:justify-start">
               <a href="{{route('frontend.status-permohonan')}}"
                  class="btn btn-ghost btn-active lg:btn-md normal-case"><span
-                  class="inline">Cek Status Permohonan</span>
+                  class="inline">Lacak Permohonan</span>
               </a>
               <a
                 href="{{route('register')}}" class="btn normal-case">Permohonan Informasi</a>
@@ -109,7 +109,7 @@
         </div>
       </div>
     @endif
-    <div class="flex-1 bg-base-200 flex flex-col items-center gap-20 py-20">
+    <div class="flex-1 bg-base-200 flex flex-col items-center gap-20 py-20 px-5">
       <div
         class="flex-1 text-base-content glass rounded-xl xl:rounded-box -mt-48 w-full max-w-6xl bg-opacity-60 p-5 pt-10">
         {{$slot}}

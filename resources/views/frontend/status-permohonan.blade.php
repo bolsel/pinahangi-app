@@ -106,7 +106,7 @@
           placeholder="xxxxxx-xxxxxxx" required/>
         <button class="btn btn-primary normal-case">
           <x-lucide-search class="h-6 w-6"/>
-          Periksa status permohonan
+          Lacak Permohonan
         </button>
         @error('nomor_permohonan')
         <div class="text-error">{{$message}}</div> @enderror
