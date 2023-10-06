@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Permohonan extends Model
 {
+    use HasFactory;
+
     const STATUS_KONSEP = 'konsep';
     const STATUS_VALIDASI = 'validasi';
     const STATUS_VERIFIKASI = 'verifikasi';
