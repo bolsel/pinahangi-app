@@ -18,7 +18,11 @@ Route::group(['as' => 'frontend.'], function () {
     Route::any('/status-permohonan', [$frontendClass, 'statusPermohonan'])
         ->name('status-permohonan');
 });
-
+Route::group(['middleware' => ['guest']], function () {
+    $authClass = \App\Http\Controllers\AuthController::class;
+    Route::get('/auth/google', [$authClass, 'googleRedirect'])->name('auth.google');
+    Route::get('/auth/google/callback', [$authClass, 'googleCallback'])->name('auth.google.callback');
+});
 Route::group([
     'middleware' => ['auth', 'verified'],
     'prefix' => '/app',
