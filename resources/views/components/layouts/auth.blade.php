@@ -38,9 +38,7 @@
       <li></li>
       <li></li>
       <li></li>
-      <li>
-        <x-lucide-home/>
-      </li>
+      <li></li>
     </ul>
   </div>
   <div class="main-auth__content">
