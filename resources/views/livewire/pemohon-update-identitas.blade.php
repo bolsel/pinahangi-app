@@ -12,11 +12,13 @@
             'ket'=>'Scan KTP / Surat keterangan kependudukan dari Disdukcapil',
             'current' => $me && $me->ktp,
             ])">
-          @if($berkasKtp)
-            <img src="{{$berkasKtp->temporaryUrl()}}" class="w-full h-full mt-2 rounded-lg"/>
-          @elseif($me && $me->ktp)
-            <img src="{{$me->ktp->url}}" class="w-full h-full mt-2 rounded-lg"/>
-          @endif
+          <div class="w-full max-h-80 overflow-auto bg-base-200 rounded-lg p-2">
+            @if($berkasKtp)
+              <img src="{{$berkasKtp->temporaryUrl()}}" class="w-full h-auto rounded-lg"/>
+            @elseif($me && $me->ktp)
+              <img src="{{$me->ktp->url}}" class="w-full h-auto rounded-lg"/>
+            @endif
+          </div>
         </x-livewire.form.input>
       </div>
       <div class="border-t p-4 text-lg flex gap-4 items-center">

@@ -4,7 +4,6 @@ namespace App\Livewire;
 
 use App\Models\File;
 use App\Models\Pemohon;
-use Illuminate\Validation\Rule;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
@@ -55,9 +54,9 @@ class PemohonUpdateIdentitas extends Component
     {
         $me = Pemohon::me();
         $this->validate([
-            'nama' => [Rule::requiredIf(!$me), 'string'],
-            'nohp' => [Rule::requiredIf(!$me), 'string'],
-            'alamat' => [Rule::requiredIf(!$me), 'string'],
+            'nama' => ['required', 'string'],
+            'nohp' => ['required', 'string'],
+            'alamat' => ['required', 'string'],
             'berkasKtp' => [$me && $me->ktp ? 'nullable' : 'required', 'image', 'max:3072']
         ]);
         $dataPemohon = $this->only(['nohp', 'alamat']);
