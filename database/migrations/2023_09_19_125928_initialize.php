@@ -70,5 +70,6 @@ return new class extends Migration {
 
     public function down(): void
     {
+        throw new Error("Tidak bisa di rollback.");
     }
 };
