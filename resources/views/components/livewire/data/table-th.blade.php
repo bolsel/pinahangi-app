@@ -6,9 +6,8 @@
 @endphp
 <th
   @if($isSortable) wire:click="setFilterSort('{{$field}}')" @endif
-  {{$attributes->merge(['class'=>'group'])}}
 >
-  <div class="flex gap-2">
+  <div {{$attributes->merge(['class'=>'flex gap-2 group'])}}>
     <span>{{$slot}}</span>
     @if($isSortable)
       <span class="w-4 h-4 tooltip tooltip-bottom" data-tip="Sort">

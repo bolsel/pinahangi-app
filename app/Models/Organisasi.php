@@ -14,6 +14,11 @@ class Organisasi extends Model
         'nama', 'alamat', 'nohp'
     ];
 
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
+
     public static function selectOptionValues(): array
     {
         return static::orderBy('nama')->get()?->mapWithKeys(function ($m) {

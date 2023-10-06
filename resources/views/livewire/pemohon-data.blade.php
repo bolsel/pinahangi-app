@@ -10,6 +10,7 @@
           <x-livewire.data.table-th field="u.name" sortable>NAMA</x-livewire.data.table-th>
           <x-livewire.data.table-th field="nohp">NO. HP</x-livewire.data.table-th>
           <x-livewire.data.table-th field="alamat">ALAMAT</x-livewire.data.table-th>
+          <th>LENGKAP</th>
         </tr>
       </x-slot:thead>
       <x-slot:tbody>
@@ -19,7 +20,12 @@
             <td class="w-1 whitespace-nowrap">{{$row->user->email}}</td>
             <td class="w-96 whitespace-nowrap">{{$row->user->name}}</td>
             <td class="whitespace-nowrap">{{$row->nohp}}</td>
-            <td>{{$row->alamat}}</td>
+            <td>
+              <div class="truncate w-40">{{$row->alamat}}</div>
+            </td>
+            <td>
+              {{$row->identitas_lengkap ? 'Ya':'Belum'}}
+            </td>
           </tr>
         @endforeach
       </x-slot:tbody>

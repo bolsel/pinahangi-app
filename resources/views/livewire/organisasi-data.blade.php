@@ -13,6 +13,7 @@
           <x-livewire.data.table-th field="id" sortable class="w-1 text-right">ID</x-livewire.data.table-th>
           <x-livewire.data.table-th field="nama" sortable>NAMA</x-livewire.data.table-th>
           <x-livewire.data.table-th field="alamat">ALAMAT</x-livewire.data.table-th>
+          <x-livewire.data.table-th class="justify-center items-center">USER</x-livewire.data.table-th>
         </tr>
       </x-slot:thead>
       <x-slot:tbody>
@@ -22,7 +23,17 @@
             <td class="text-right">{{$data->firstItem() + $loop->index}}</td>
             <td class="w-1 text-center">{{$row->id}}</td>
             <td class="w-96">{{$row->nama}}</td>
-            <td>{{$row->alamat}}</td>
+            <td>
+              <div class="truncate w-40">{{$row->alamat}}</div>
+            </td>
+            <td class="text-center">
+              @php
+                $count_user =$row->users()->count();
+              @endphp
+              <span @class(['text-error'=>$count_user < 1])>
+                {{$count_user}}
+              </span>
+            </td>
           </tr>
         @endforeach
       </x-slot:tbody>
