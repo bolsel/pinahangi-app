@@ -1,5 +1,5 @@
 @props([
-    'cancelRoute'
+    'cancelRoute', "saveLabel"=>'SIMPAN'
 ])
 <div class="flex flex-col w-full gap-6">
   <form wire:submit="save">
@@ -9,7 +9,7 @@
       </div>
       <div class="divider"></div>
       <div class="p-4">
-        <button type="submit" class="btn btn-primary">Simpan</button>
+        <button type="submit" class="btn btn-primary">{{$saveLabel}}</button>
         <a href="{{route($cancelRoute)}}" wire:navigate class="btn btn-ghost">Batal</a>
       </div>
     </div>

@@ -67,7 +67,7 @@
                   </li>
                 @endif
                 <li>
-                  <a href="{{route('user-password.update')}}" class="flex gap-2">
+                  <a href="{{route('app.update-password')}}" class="flex gap-2">
                     <x-lucide-key class="w-4 h-4"/>
                     Ganti kata sandi
                   </a>

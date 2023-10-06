@@ -29,6 +29,7 @@ Route::group([
     'as' => 'app.'
 ], function () {
     Route::get('/', 'App\Http\Controllers\App\DashboardController@index')->name('index');
+    Route::get('/update-password', \App\Livewire\UserUpdatePasswordForm::class)->name('update-password');
     Route::get('/pemberitahuan', 'App\Http\Controllers\App\UserController@pemberitahuan')->name('pemberitahuan');
 
     Route::get('/permohonan', [\App\Http\Controllers\App\PermohonanController::class, 'index'])->name('permohonan.index');

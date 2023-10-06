@@ -55,6 +55,22 @@
           );
     }
   @endphp
+  @if(Gate::check('roleIsUser'))
+    <li>
+      <a
+        href="{{route('app.pemohon-identitas-update')}}" wire:navigate>
+        <span>
+          <x-lucide-user class="w-6 h-6 stroke-current"/>
+        </span>
+        <div class="">
+          Update Identitas
+          @if(!Auth::user()->pemohon->identitas_lengkap)
+            <div class="text-xs italic text-error">Belum lengkap</div>
+          @endif
+        </div>
+      </a>
+    </li>
+  @endif
   @foreach($menus as $menu)
     @if(is_string($menu))
       <li></li>

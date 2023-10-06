@@ -35,7 +35,8 @@
           name="email"
           required
           class="f-input"
-          type="text" placeholder="" value="">
+          value="{{old('email')}}"
+          type="text" placeholder="">
         @error('email')
         <div class="text-error p-2">
           {{ $message }}
