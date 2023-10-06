@@ -1,37 +1,46 @@
 @php
   $pemohon = $permohonan->pemohon;
 @endphp
-<div class="p-4 gap-4 flex flex-col lg:flex-row w-full">
-  <x-data.pemohon-data-detail class="w-full lg:w-3/6 xl:w-2/6" :pemohon="$pemohon"/>
+<div class="gap-4 flex flex-col">
+  <div class="grid lg:grid-cols-2 gap-4">
+    <x-list-detail
+      title="Permohonan"
+      class="border shadow-sm rounded-box"
 
-  <div class="w-full lg:w-3/6 xl:w-4/6 flex flex-col gap-4">
-    <x-field-data label="Jenis Permohonan" :value="\App\Models\Pemohon::JENIS[$permohonan->jenis_pemohon]"/>
-    @if($permohonan->jenis_pemohon !== \App\Models\Pemohon::JENIS_PERORANGAN)
-      @foreach(\App\Models\Permohonan::dataPemohonJenisConfig($permohonan->jenis_pemohon) as $_name => $conf)
-        <x-field-data :label="$conf['label']" :value="$permohonan->data[$_name] ?? ''"/>
-      @endforeach
-      <x-field-data label="Scan berkas pendukung">
-        <a href="{{$permohonan->berkasJenis?->url}}" target="_blank"
-           class="btn btn-sm btn-outline btn-primary normal-case">Lihat
-          file</a>
-      </x-field-data>
-    @endif
-
-    <x-field-data label="Permohonan Informasi">
-      <div x-init="window.editorViewer($el)">{{$permohonan->permohonan}}</div>
-    </x-field-data>
-    @if($withWaktuPermohonan)
-      <x-field-data label="Waktu Permohonan">
-        <div>{{$permohonan->waktu_permohonan?->translatedFormat('l, d M Y H:i')}}</div>
-        <div>({{$permohonan->waktu_permohonan?->diffForHumans()}})</div>
-      </x-field-data>
-    @endif
-    @if($withWaktuVerifikasi)
-      <x-field-data label="Diverifikasi pada">
-        <div>{{$permohonan->waktu_verifikasi?->translatedFormat('l, d M Y H:i')}}</div>
-        <div>({{$permohonan->waktu_verifikasi?->diffForHumans()}})</div>
-      </x-field-data>
-    @endif
-    {{$slot}}
+    >
+      @if(!$isHide('nomor'))
+        <x-list-detail.item label="Nomor" :value="$permohonan->nomor ?? 'Belum ada nomor permohonan'"/>
+      @endif
+      @if(!$isHide('tgl_permohonan'))
+        <x-list-detail.item label="Tgl Permohonan">
+          <x-date-translated :value="$permohonan->waktu_permohonan"/>
+        </x-list-detail.item>
+      @endif
+      <x-list-detail.item label="Jenis Permohonan" :value="$permohonan->jenis_pemohon_label"/>
+      @if($dataField = \App\Models\Permohonan::dataPemohonJenisConfig($permohonan->jenis_pemohon))
+        @foreach($dataField as $n => $f)
+          <x-list-detail.item :label="$f['label']" :value="$permohonan->data[$n] ?? ''"/>
+        @endforeach
+        @if($berkasJenis = $permohonan->berkasJenis)
+          <x-list-detail.item label="Berkas Pendukung">
+            <a target="_blank" href="{{$berkasJenis->url}}" class="btn btn-xs normal-case">Lihat</a>
+          </x-list-detail.item>
+        @endif
+      @endif
+      <div class="p-5">
+        <div class="font-bold">Permohonan Informasi</div>
+        <div class="border-l-4 pl-4 " x-init="window.editorViewer($el)">{{$permohonan->permohonan}}</div>
+      </div>
+    </x-list-detail>
+    <x-list-detail class="border shadow-sm rounded-box" title="Identitas Pemohon" :values="[
+            ['Email', $pemohon->email],
+            ['Nama', $pemohon->nama],
+            ['No.HP', $pemohon->nohp],
+            ['Alamat', $pemohon->alamat],
+          ]">
+      <x-list-detail.item label="Scan KTP" no-border>
+        <img class="rounded-xl p-2" src="{{$pemohon->ktp?->url}}"/>
+      </x-list-detail.item>
+    </x-list-detail>
   </div>
 </div>

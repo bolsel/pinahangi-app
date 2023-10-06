@@ -57,7 +57,7 @@ class PermohonanProsesForm extends Component
                 ]);
             }
         }
-        if ($this->permohonan->isPerbaiki()) {
+        if ($this->permohonan->is_perbaiki) {
             if ($this->permohonan->update(['status' => Permohonan::STATUS_SELESAI, 'informasi' => $this->informasi])) {
                 $this->permohonan->log()->create(['status' => Permohonan::STATUS_SELESAI]);
                 PermohonanJob::dispatch($this->permohonan);

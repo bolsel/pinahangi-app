@@ -132,10 +132,16 @@ class Permohonan extends Model
             ->count();
     }
 
-    public function isPerbaiki()
+    public function getIsPerbaikiAttribute()
     {
         return $this->status === self::STATUS_PERBAIKI;
     }
+
+    public function getIsSelesaiAttribute()
+    {
+        return $this->status === self::STATUS_SELESAI;
+    }
+
 
     public static function dataPemohonJenisConfig($key = null)
     {

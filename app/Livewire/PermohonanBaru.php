@@ -146,8 +146,8 @@ class PermohonanBaru extends Component
                 'waktu' => now()->add('10s')
             ]);
             PermohonanJob::dispatch($permohonan);
-            session()->flash('global-info', 'Permohonan telah akan segera diverifikasi.');
-            $this->redirect(route('app.permohonan-saya'), true);
+            session()->flash('global-info', 'Permohonan Informasi telah terkirim dan akan segera diverifikasi.');
+            $this->redirect(route('app.permohonan.index'), true);
         }
     }
 

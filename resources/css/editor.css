@@ -5,6 +5,5 @@
 }
 
 .toastui-editor-contents {
-    @apply font-default;
-    font-size: 14px;
+    @apply font-default text-base;
 }

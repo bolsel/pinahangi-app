@@ -6,7 +6,9 @@
     @if($id && $status === \App\Models\Permohonan::STATUS_VALIDASI)
       <div class="bg-base-100 rounded-box">
         <div class="border-b p-4 text-lg">Validasi Permohonan</div>
-        <x-data.permohonan-detail :permohonan="$id"/>
+        <div class="p-4">
+          <x-data.permohonan-detail :permohonan="$id" :hides="['nomor', 'tgl_permohonan']"/>
+        </div>
         <div class="border-t p-4 flex flex-row gap-4">
           <button wire:click="updateFormulir" class="btn normal-case">Ubah Formulir</button>
           <button type="button" class="btn btn-primary normal-case" wire:click="send">Kirim Permintaan Informasi

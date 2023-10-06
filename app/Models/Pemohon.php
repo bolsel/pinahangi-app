@@ -67,7 +67,7 @@ class Pemohon extends Model
 
     public function getEmailAttribute()
     {
-        return $this->user->name;
+        return $this->user->email;
     }
 
     public function getIdentitasLengkapAttribute(): bool
