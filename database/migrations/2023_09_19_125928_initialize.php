@@ -54,6 +54,15 @@ return new class extends Migration {
                 ->constrained('organisasi')->restrictOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
+        Schema::create('permohonan_puas', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('permohonan_id')->constrained('permohonan')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
+            $table->integer('puas');
+            $table->text('keterangan')->nullable();
+            $table->timestamps();
+        });
         Schema::create('permohonan_log', function (Blueprint $table) {
             $table->id();
             $table->foreignId('permohonan_id')->constrained('permohonan')
