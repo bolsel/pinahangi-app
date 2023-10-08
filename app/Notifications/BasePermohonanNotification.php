@@ -14,7 +14,10 @@ abstract class BasePermohonanNotification extends Notification
 
     public function via($notifiable): array
     {
-        return ['database'];
+        if (config('app.env') === 'local') {
+            return ['database'];
+        }
+        return ['database', 'mail'];
     }
 
 }

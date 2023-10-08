@@ -10,9 +10,9 @@ class PermohonanAkanTelaahNotification extends BasePermohonanNotification
     public function toMail($notifiable): MailMessage
     {
         return (new MailMessage)
-            ->line('The introduction to the notification.')
-            ->action('Notification Action', url('/'))
-            ->line('Thank you for using our application!');
+            ->greeting('Hai ' . $notifiable->name)
+            ->subject('Permohonan anda segera ditelaah.')
+            ->line("Permohonan anda dengan nomor **{$this->permohonan->nomor}** segera ditelaah.");
     }
 
     public function toArray($notifiable): array

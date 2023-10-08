@@ -10,9 +10,15 @@ class PermohonanPerluProsesNotification extends BasePermohonanNotification
     public function toMail($notifiable): MailMessage
     {
         return (new MailMessage)
-            ->line('The introduction to the notification.')
-            ->action('Notification Action', url('/'))
-            ->line('Thank you for using our application!');
+            ->greeting("Hai {$notifiable->name}. Permohonan perlu diproses.")
+            ->subject('Permohonan perlu diproses.')
+            ->lineIf($this->permohonan->nomor, '*Nomor*: **' . $this->permohonan->nomor . '**.')
+            ->line('*Nama Pemohon*: **' . $this->permohonan->pemohon->nama . '**.')
+            ->line('*Jenis*: **' . $this->permohonan->jenis_pemohon_label . '**.')
+            ->line('*Organisasi*: **' . $this->permohonan->organisasi->nama . '**.')
+            ->line('*Waktu Permohonan*: **' . $this->permohonan->waktu_permohonan . '**.')
+            ->line('*Waktu Verifikasi*: **' . $this->permohonan->waktu_verifikasi . '**.')
+            ->action('Proses Sekarang', route('app.permohonan.proses', ['permohonan' => $this->permohonan]));
     }
 
     public function toArray($notifiable): array

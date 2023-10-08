@@ -10,9 +10,13 @@ class PermohonanPerluPerbaikiNotification extends BasePermohonanNotification
     public function toMail($notifiable): MailMessage
     {
         return (new MailMessage)
-            ->line('The introduction to the notification.')
-            ->action('Notification Action', url('/'))
-            ->line('Thank you for using our application!');
+            ->greeting("Hai $notifiable->name. Proses permohonan perlu diperbaiki.")
+            ->subject('Proses Permohonan perlu diperbaiki.')
+            ->lineIf($this->permohonan->nomor, '*Nomor*: **' . $this->permohonan->nomor . '**.')
+            ->line('*Nama Pemohon*: **' . $this->permohonan->pemohon->nama . '**.')
+            ->line('*Jenis*: **' . $this->permohonan->jenis_pemohon_label . '**.')
+            ->line('*Organisasi*: **' . $this->permohonan->organisasi->nama . '**.')
+            ->action('Perbaiki Sekarang', route('app.permohonan.proses', ['permohonan' => $this->permohonan]));
     }
 
     public function toArray($notifiable): array

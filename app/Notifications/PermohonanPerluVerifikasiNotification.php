@@ -10,9 +10,13 @@ class PermohonanPerluVerifikasiNotification extends BasePermohonanNotification
     public function toMail($notifiable): MailMessage
     {
         return (new MailMessage)
-            ->line('The introduction to the notification.')
-            ->action('Notification Action', url('/'))
-            ->line('Thank you for using our application!');
+            ->greeting('Permohonan baru perlu verifikasi dari anda.')
+            ->subject('Permohonan perlu verifikasi.')
+            ->lineIf($this->permohonan->nomor, '*Nomor*: **' . $this->permohonan->nomor . '**.')
+            ->line('*Nama Pemohon*: **' . $this->permohonan->pemohon->nama . '**.')
+            ->line('*Jenis*: **' . $this->permohonan->jenis_pemohon_label . '**.')
+            ->line('*Waktu Permohonan*: **' . $this->permohonan->waktu_permohonan . '**.')
+            ->action('Verifikasi Sekarang', route('app.permohonan.verifikasi', ['permohonan' => $this->permohonan]));
     }
 
     public function toArray($notifiable): array

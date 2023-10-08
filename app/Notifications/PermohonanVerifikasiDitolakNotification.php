@@ -9,9 +9,10 @@ class PermohonanVerifikasiDitolakNotification extends BasePermohonanNotification
     public function toMail($notifiable): MailMessage
     {
         return (new MailMessage)
-            ->line('The introduction to the notification.')
-            ->action('Notification Action', url('/'))
-            ->line('Thank you for using our application!');
+            ->greeting('Hai ' . $notifiable->name)
+            ->subject('Verifikasi permohonan ditolak..')
+            ->line("Permohonan anda dengan nomor **{$this->permohonan->nomor}** ditolak.")
+            ->lineIf($this->permohonan->statusLog->keterangan, "*Keterangan*: " . $this->permohonan->statusLog->keterangan);
     }
 
     public function toArray($notifiable): array
