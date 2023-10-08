@@ -11,6 +11,7 @@ export default defineConfig({
         'resources/js/auth.js',
         'resources/js/app.js',
         'resources/js/frontend.js',
+        'resources/js/chart.js',
       ],
       refresh: true,
     }),

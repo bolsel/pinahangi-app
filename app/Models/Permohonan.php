@@ -106,9 +106,9 @@ class Permohonan extends Model
         return Pemohon::JENIS[$this->jenis_pemohon];
     }
 
-    public static function countStatusProses()
+    public static function countStatus($status)
     {
-        return static::where('status', self::STATUS_PROSES)
+        return static::whereStatus($status)
             ->where(function ($q) {
                 if (\Gate::check('roleIsOrganisasi')) {
                     $q->where('organisasi_id', auth()->user()->organisasi_id);
@@ -117,22 +117,36 @@ class Permohonan extends Model
             ->count();
     }
 
+    public static function countStatusProses()
+    {
+        return self::countStatus(self::STATUS_PROSES);
+    }
+
     public static function countStatusVerifikasi()
     {
-        return static::where('status', self::STATUS_VERIFIKASI)
-            ->count();
+        return self::countStatus(self::STATUS_VERIFIKASI);
+    }
+
+    public static function countStatusVerifikasiTolak()
+    {
+        return self::countStatus(self::STATUS_VERIFIKASI_TOLAK);
     }
 
     public static function countStatusTelaah()
     {
-        return static::where('status', self::STATUS_TELAAH)
-            ->count();
+        return self::countStatus(self::STATUS_TELAAH);
     }
 
     public static function countStatusPerbaiki()
     {
-        return static::where('status', self::STATUS_PERBAIKI)
-            ->count();
+
+        return self::countStatus(self::STATUS_PERBAIKI);
+    }
+
+    public static function countStatusSelesai()
+    {
+
+        return self::countStatus(self::STATUS_SELESAI);
     }
 
     public function getIsPerbaikiAttribute()
@@ -145,6 +159,10 @@ class Permohonan extends Model
         return $this->status === self::STATUS_SELESAI;
     }
 
+    public function kepuasan()
+    {
+        return $this->hasOne(PermohonanPuas::class);
+    }
 
     public static function dataPemohonJenisConfig($key = null)
     {

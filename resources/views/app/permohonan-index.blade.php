@@ -9,7 +9,7 @@
           @if($permohonanAktif) disabled @endif
         href="{{route('app.permohonan-baru')}}" wire:navigate
           class="btn btn-primary normal-case">
-          Buat Permohonan Baru
+          Formulir Permohonan
         </a>
       </div>
     @endif

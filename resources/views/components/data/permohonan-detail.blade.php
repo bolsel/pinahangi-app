@@ -39,7 +39,9 @@
             ['Alamat', $pemohon->alamat],
           ]">
       <x-list-detail.item label="Scan KTP" no-border>
-        <img class="rounded-xl p-2" src="{{$pemohon->ktp?->url}}"/>
+        <div class="max-h-56 overflow-auto">
+          <img class="rounded-xl p-2" src="{{$pemohon->ktp?->url}}"/>
+        </div>
       </x-list-detail.item>
     </x-list-detail>
   </div>

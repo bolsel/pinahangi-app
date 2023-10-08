@@ -10,7 +10,7 @@
   <title> {{$title ? $title .' | '.config('app.name', 'PINAHANGI') : config('app.name', 'PINAHANGI')}}</title>
   <x-google-font font="inter"/>
   @livewireStyles
-  @vite(['resources/css/app.scss', 'resources/js/app.js'])
+  @vite($viteAssets)
 </head>
 <body class="bg-base-200">
 <div class="drawer lg:drawer-open ">
