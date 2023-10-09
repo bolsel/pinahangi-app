@@ -102,9 +102,9 @@
           </button>
         </div>
       @endif
-      @isset($petunjuk)
-        <div x-data="{maximize:$persist(true).as('petunjuk-{{md5(Route::current()->getName())}}')}"
-             class="w-full mb-5 bg-base-100 shadow-md rounded-b-box flex flex-col lg:flex-row gap-4 border-t-2 relative">
+      @isset($globalInformasi)
+        <div x-data="{maximize:$persist(true).as('global-informasi-{{md5(Route::current()->getName())}}')}"
+             class="w-full mb-5 bg-base-100 shadow-md rounded-b-box flex flex-col lg:flex-row gap- border-t-2 relative">
           <div class="flex flex-col lg:w-2/12">
             <div class="rounded-r-box py-2 inline-flex gap-2 justify-start items-center pl-3 group cursor-pointer"
                  @click="maximize = !maximize">
@@ -116,14 +116,14 @@
                   <x-lucide-minimize title="Minimalis" class="w-4 h-5"/>
                 </template>
               </button>
-              <span class="group-hover:underline">Petunjuk</span>
+              <span class="group-hover:underline">Informasi</span>
             </div>
-            <div class="flex justify-center" x-show="maximize">
-              <x-lucide-help-circle class="w-24 h-24"/>
+            <div class="flex justify-center pb-0 lg:pb-3" x-show="maximize">
+              <x-lucide-help-circle class="stroke-gray-400 w-10 h-10 lg:w-24 lg:h-24"/>
             </div>
           </div>
           <div class="p-5 flex-1" x-transition x-show="maximize">
-            {{$petunjuk}}
+            {{$globalInformasi}}
           </div>
         </div>
       @endisset
