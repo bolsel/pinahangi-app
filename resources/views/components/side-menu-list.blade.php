@@ -1,6 +1,6 @@
 <ul class="menu px-4 py-0">
   <li>
-    <a href="{{route('app.index')}}" wire:navigate>
+    <a href="{{route('app.index')}}">
             <span>
               <x-lucide-home class="w-6 h-6 stroke-current"/>
             </span>
