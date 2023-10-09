@@ -36,7 +36,7 @@
       </div>
       <p class="flex flex-col items-center justify-center mt-10 text-center text-md text-gray-500">
         <span>Ingat password?</span>
-        <a href="{{route('register')}}"
+        <a href="{{route('login')}}"
            class="text-indigo-400 hover:text-blue-500 no-underline hover:underline cursor-pointer transition ease-in duration-300">Masuk</a>
       </p>
     </form>
