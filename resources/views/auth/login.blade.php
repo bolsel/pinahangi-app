@@ -87,5 +87,11 @@
           akun baru</a>
       </p>
     </form>
+    <div
+      class="flex items-center justify-center">
+      <a href="{{route('frontend.index')}}" class=" text-gray-400 hover:text-gray-600 transition ease-in duration-150">
+        <x-lucide-home class=" w-8 h-8"/>
+      </a>
+    </div>
   </div>
 </x-layouts.auth>
