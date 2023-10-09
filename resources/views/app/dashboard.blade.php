@@ -1,4 +1,29 @@
 <x-layouts.app title="Dashboard" :vite-assets="['resources/js/chart.js']">
+  @if(Gate::check('su'))
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5 m-auto">
+      <div class="bg-base-100 shadow-md p-3 rounded-box flex justify-center items-center">
+        <div class="flex-1 flex flex-col">
+          <div class="italic">Total Organisasi</div>
+          <div class="font-semibold">{{\App\Models\Organisasi::count('id')}}</div>
+        </div>
+        <x-lucide-building class="text-gray-400 w-8 h-8"/>
+      </div>
+      <div class="bg-base-100 shadow-md p-3 rounded-box flex justify-center items-center">
+        <div class="flex-1 flex flex-col">
+          <div class="italic">Total Pemohon</div>
+          <div class="font-semibold">{{\App\Models\Pemohon::count('id')}}</div>
+        </div>
+        <x-lucide-users class="text-gray-400 w-8 h-8"/>
+      </div>
+      <div class="bg-base-100 shadow-md p-3 rounded-box flex justify-center items-center">
+        <div class="flex-1 flex flex-col">
+          <div class="italic">Total Permohonan</div>
+          <div class="font-semibold">{{\App\Models\Permohonan::count('id')}}</div>
+        </div>
+        <x-lucide-file class="text-gray-400 w-8 h-8"/>
+      </div>
+    </div>
+  @endif
   <div class="flex flex-col gap-4">
     <div class="bg-base-100 shadow-md rounded-box">
       <div class="border-b p-4 text-lg font-semibold">Permohonan Menurut Status</div>
