@@ -13,10 +13,10 @@
         $menus->push(
             'Data',
             ['label'=>'Organisasi','route'=>route('app.organisasi.index'), 'icon'=> svg('lucide-building','w-6 h-6 stroke-current')],
-            ['label'=>'Pemohon','route'=>route('app.pemohon.index'), 'icon'=> svg('lucide-user', 'w-6 h-6 stroke-current')],
+            ['label'=>'Pemohon','route'=>route('app.pemohon.index'), 'icon'=> svg('lucide-users', 'w-6 h-6 stroke-current')],
             'User',
-            ['label'=>'System User','route'=>route('app.users.index'), 'icon'=> svg('lucide-building','w-6 h-6 stroke-current')],
-            ['label'=>'Organisasi User','route'=>route('app.organisasi.user'), 'icon'=> svg('lucide-building','w-6 h-6 stroke-current')],
+            ['label'=>'System User','route'=>route('app.users.index'), 'icon'=> svg('lucide-user-cog','w-6 h-6 stroke-current')],
+            ['label'=>'Organisasi User','route'=>route('app.organisasi.user'), 'icon'=> svg('lucide-users','w-6 h-6 stroke-current')],
         );
     }elseif (Gate::check('roleIsUser')){
         $menus->push(['label'=>'Permohonan Informasi', 'route'=>route('app.permohonan.index'), 'icon'=> svg('lucide-file-text','w-6 h-6 stroke-current')]);
@@ -59,7 +59,7 @@
   @if(Gate::check('roleIsUser'))
     <li>
       <a
-              href="{{route('app.pemohon-identitas-update')}}" wire:navigate>
+        href="{{route('app.pemohon-identitas-update')}}" wire:navigate>
         <span>
           <x-lucide-user class="w-6 h-6 stroke-current"/>
         </span>
