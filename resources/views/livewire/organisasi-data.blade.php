@@ -1,5 +1,9 @@
 <div class="flex flex-col gap-6 w-full">
-
+  <x-slot:global-informasi>
+    Setelah menambahkan organisasi baru, tambahkan juga user Organisasi pada menu <a
+      class="link link-hover link-primary"
+      href="{{route('app.organisasi.user')}}">Organisasi User</a>. User perlu dibuat untuk melakukan proses permohonan.
+  </x-slot:global-informasi>
   <div class="bg-base-100 rounded-box flex flex-col">
 
     <x-livewire.data :data="$data">
