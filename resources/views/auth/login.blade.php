@@ -11,21 +11,23 @@
         {{ session('status') }}
       </div>
     @endif
-    <div class="flex flex-col gap-2">
-      <a
-        href="{{route('auth.google')}}"
-        class="w-full bg-base-100 border flex gap-2 p-3 rounded-xl shadow-sm hover:bg-base-200 cursor-pointer">
-        <x-icon-google-color class="w-6 h-6"/>
-        Masuk dengan Google
-      </a>
-    </div>
-    <div
-      class="flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
-      <p
-        class="mx-4 mb-0 text-center font-semibold">
-        atau
-      </p>
-    </div>
+    @if(config('services.google.enabled'))
+      <div class="flex flex-col gap-2">
+        <a
+          href="{{route('auth.google')}}"
+          class="w-full bg-base-100 border flex gap-2 p-3 rounded-xl shadow-sm hover:bg-base-200 cursor-pointer">
+          <x-icon-google-color class="w-6 h-6"/>
+          Masuk dengan Google
+        </a>
+      </div>
+      <div
+        class="flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
+        <p
+          class="mx-4 mb-0 text-center font-semibold">
+          atau
+        </p>
+      </div>
+    @endif
     <form class="mt-8 space-y-6" action="{{route('login')}}" method="POST">
       @csrf
       <div class="">
