@@ -119,7 +119,7 @@
               <span class="group-hover:underline">Informasi</span>
             </div>
             <div class="flex justify-center pb-0 lg:pb-3" x-show="maximize">
-              <x-lucide-help-circle class="stroke-gray-400 w-10 h-10 lg:w-24 lg:h-24"/>
+              <x-lucide-help-circle class="stroke-gray-400 w-10 h-10 lg:w-20 lg:h-20"/>
             </div>
           </div>
           <div class="p-5 flex-1" x-transition x-show="maximize">

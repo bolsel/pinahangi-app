@@ -1,5 +1,15 @@
 <div class="flex flex-col gap-6 w-full">
-
+  <x-slot:global-informasi>
+    <ul class="list-disc">
+      <li>Role <strong>Superuser</strong> dapat mengelola semua data. Termasuk juga dapat melakukan verifikasi dan
+        telaah permohonan.
+      </li>
+      <li>Role <strong>Verifikasi</strong> dapat melakukan verifikasi permohonan.
+      <li>Role <strong>Telaah</strong> dapat melakukan telaah permohonan.
+      </li>
+      <li>Email user harus email aktif. Agar dapat menerima pemberitahuan mengenai aktifitas permohonan.</li>
+    </ul>
+  </x-slot:global-informasi>
   <div class="bg-base-100 rounded-box">
 
     <x-livewire.data :data="$data">

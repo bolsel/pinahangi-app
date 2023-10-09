@@ -1,5 +1,8 @@
 <div class="flex flex-col gap-6 w-full">
-
+  <x-slot:global-informasi>
+    Email user harus email yang aktif, agar dapat menerima pemberitahuan mengenai Permohonan yang harus diproses atau
+    diperbaiki.
+  </x-slot:global-informasi>
   <div class="bg-base-100 rounded-box">
 
     <x-livewire.data :data="$data">
