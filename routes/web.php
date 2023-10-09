@@ -45,6 +45,8 @@ Route::group([
         Route::get('/permohonan/telaah/{permohonan}', [\App\Http\Controllers\App\PermohonanController::class, 'telaah'])->name('permohonan.telaah');
     });
     Route::group(['middleware' => 'can:su'], function () {
+        Route::get('/users', \App\Livewire\SystemUser::class)->name('users.index');
+        Route::get('/users/form/{id?}', \App\Livewire\SystemUserForm::class)->name('users.form');
         Route::get('/organisasi', \App\Livewire\OrganisasiData::class)->name('organisasi.index');
         Route::get('/organisasi/form/{id?}', \App\Livewire\OrganisasiForm::class)->name('organisasi.form');
         Route::get('/organisasi/user', \App\Livewire\OrganisasiUser::class)->name('organisasi.user');

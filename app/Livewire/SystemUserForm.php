@@ -2,20 +2,18 @@
 
 namespace App\Livewire;
 
-use App\Models\Organisasi;
 use App\Models\User;
-use Carbon\Carbon;
 use Illuminate\Validation\Rule;
-use Illuminate\Validation\Rules\Password;
 use Livewire\Component;
 
-class OrganisasiUserForm extends Component
+class SystemUserForm extends Component
 {
     public ?User $current = null;
     public $name;
     public $email;
+    public $role;
     public $password;
-    public $organisasi_id;
+    public $role_list = SystemUser::ROLE_LIST;
 
     public function mount(?int $id = null)
     {
@@ -31,28 +29,27 @@ class OrganisasiUserForm extends Component
         $this->validate([
             'name' => ['required'],
             'email' => ['required', Rule::unique(User::class, 'email')->ignore($this->current ?? null)],
+            'role' => ['required', Rule::in(array_keys($this->role_list))],
             'password' => [Rule::requiredIf(!$this->current)],
-            'organisasi_id' => ['required', Rule::exists(Organisasi::class, 'id')]
         ]);
 
-        $data = $this->only(['name', 'email', 'organisasi_id']);
+        $data = $this->only(['name', 'email', 'role']);
 
         if ($this->password) {
             $data['password'] = $this->password;
         }
-        $data['role'] = User::ROLE_ORGANISASI;
         if ($this->current) {
             $this->current->update($data);
         } else {
             User::create($data)->markEmailAsVerified();
         }
         session()->flash('status', 'User berhasil ' . ($this->current ? 'diupdate' : 'ditambahkan'));
-        $this->redirect(route('app.organisasi.user'), true);
+        $this->redirect(route('app.users.index'), true);
     }
 
     public function render()
     {
-        return view('livewire.organisasi-user-form')
-            ->title('Operator Organisasi (' . ($this->current ? 'Update' : 'Tambah') . ')');
+        return view('livewire.system-user-form')
+            ->title('System User (' . ($this->current ? 'Update' : 'Tambah') . ')');
     }
 }
