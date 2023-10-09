@@ -31,7 +31,7 @@
     <form class="mt-8 space-y-6" action="{{route('login')}}" method="POST">
       @csrf
       <div class="">
-        <label for="user" class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Email / Nama Pengguna</label>
+        <label for="user" class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Email</label>
         <input
           id="user"
           name="email"
