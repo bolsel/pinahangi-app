@@ -2,7 +2,6 @@ import Chart from 'chart.js/auto';
 import colors from "tailwindcss/colors";
 import _ from 'lodash'
 
-console.log(_.get(colors, 'red.50'))
 window.Chart = Chart;
 const getOrCreateLegendList = (chart, id) => {
   const legendContainer = document.getElementById(id);
@@ -84,7 +83,6 @@ const htmlLegendPlugin = {
   }
 };
 window.ChartPieWithLegend = (el, data, legendContainer) => {
-  console.log(data)
   new Chart(
     el,
     {
