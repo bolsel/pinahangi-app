@@ -9,7 +9,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title> {{$title}} | {{ config('app.name', 'PINAHANGI') }}</title>
+  <link rel="manifest" href="{{URL::to('/manifest.json')}}">
+  <title>{{$title}}</title>
   <x-google-font font="raleway"/>
   @vite(['resources/css/frontend.scss', 'resources/js/frontend.js'])
 </head>
