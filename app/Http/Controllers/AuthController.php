@@ -35,6 +35,6 @@ class AuthController extends Controller
             }
         }
         \Auth::login($user);
-        return back();
+        return redirect(route('app.index'));
     }
 }
