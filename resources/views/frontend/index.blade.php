@@ -46,5 +46,50 @@
         </div>
       </div>
     </div>
+
+    <div class="bg-base-100 w-full rounded-box shadow-md p-5">
+      <div class="text-2xl font-bold mb-4">
+        <span class="title-gradient-border">Install Aplikasi</span>
+      </div>
+      <div class="flex flex-col" x-data="{activePlatform:1}">
+        <div class="tabs tabs-boxed">
+          <a class="tab" :class="{'tab-active':activePlatform===1}" @click="activePlatform=1">Android</a>
+          <a class="tab" :class="{'tab-active':activePlatform===2}" @click="activePlatform=2">iOS</a>
+          <a class="tab" :class="{'tab-active':activePlatform===3}" @click="activePlatform=3">Desktop</a>
+        </div>
+        <div class="p-4">
+          <ul class="list-disc" x-show="activePlatform===1" x-transition>
+            <li>Buka web <strong>{{config('app.name')}}</strong>.</li>
+            <li>
+              <p>Klik tombol 3 titik pada kanan atas</p>
+              <img class="m-4 rounded-lg max-w-sm" src="{{URL::to('/images/install-android.jpeg')}}" loading="lazy"/>
+            </li>
+            <li>
+              <p>Klik install aplikasi.</p>
+              <img class="m-4 rounded-lg max-w-sm" src="{{URL::to('/images/install-android-2.jpeg')}}" loading="lazy"/>
+            </li>
+          </ul>
+          <ul class="list-disc" x-show="activePlatform===2" x-transition>
+            <li>Buka web <strong>{{config('app.name')}}</strong>.</li>
+
+            <li>
+              <p>Klik icon share</p>
+              <img class="m-4 rounded-lg max-w-sm" src="{{URL::to('/images/install-ios.jpeg')}}" loading="lazy"/>
+            </li>
+            <li>
+              <p>Pilih Add to Home Screen.</p>
+              <img class="m-4 rounded-lg max-w-sm" src="{{URL::to('/images/install-ios-2.jpeg')}}" loading="lazy"/>
+            </li>
+          </ul>
+          <ul class="list-disc" x-show="activePlatform===3" x-transition>
+            <li>Buka web <strong>{{config('app.name')}}</strong>.</li>
+            <li>
+              <p>Klik tombol install button pada address bar browser, kemudian klik Install.</p>
+              <img class="m-4 rounded-lg" src="{{URL::to('/images/install-desktop.jpeg')}}" loading="lazy"/>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </x-layouts.frontend>
