@@ -2,7 +2,6 @@
 
 namespace App\Notifications;
 
-use App\Models\Permohonan;
 use Illuminate\Notifications\Messages\MailMessage;
 
 class PermohonanPerluVerifikasiNotification extends BasePermohonanNotification
