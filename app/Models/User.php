@@ -51,6 +51,13 @@ class User extends Authenticatable implements MustVerifyEmail
         'password' => 'hashed',
     ];
 
+    public $pushNotificationType = 'users';
+
+    public function routeNotificationForPusherPushNotifications($notification): string
+    {
+        return $this->id;
+    }
+
     public static function whereCanVerifikasi()
     {
         return static::whereIn('role', [self::ROLE_SU, self::ROLE_VERIFIKASI]);

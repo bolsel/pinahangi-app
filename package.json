@@ -6,6 +6,7 @@
   },
   "devDependencies": {
     "@alpinejs/persist": "^3.13.0",
+    "@pusher/push-notifications-web": "^1.1.0",
     "@tailwindcss/line-clamp": "^0.4.4",
     "@tailwindcss/typography": "^0.5.10",
     "@toast-ui/editor": "^3.2.2",

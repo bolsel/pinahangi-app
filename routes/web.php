@@ -28,6 +28,21 @@ Route::group([
     'prefix' => '/app',
     'as' => 'app.'
 ], function () {
+
+    Route::get('/pusher/beams-auth/{id}', function (Request $request, $id) {
+        $config = config('services.pusher');
+        if (!$config['beams_enabled']) {
+            return response()->json(["error" => "Not enabled"]);
+        }
+        $beamsClient = new \Pusher\PushNotifications\PushNotifications([
+            'instanceId' => $config['beams_instance_id'],
+            'secretKey' => $config['beams_secret_key'],
+        ]);
+        $beamsToken = $beamsClient->generateToken($id);
+        return response()->json($beamsToken);
+
+    });
+
     Route::get('/', 'App\Http\Controllers\App\DashboardController@index')->name('index');
     Route::get('/update-password', \App\Livewire\UserUpdatePasswordForm::class)->name('update-password');
     Route::get('/pemberitahuan', 'App\Http\Controllers\App\UserController@pemberitahuan')->name('pemberitahuan');

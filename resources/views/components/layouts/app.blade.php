@@ -13,7 +13,8 @@
   @livewireStyles
   @vite($viteAssets)
 </head>
-<body class="bg-base-200">
+<body class="bg-base-200"
+      onload="window.appOnLoad({{Auth::id()}}, {{intval(config('services.pusher.beams_enabled'))}})">
 <div class="drawer lg:drawer-open ">
   <input id="drawer" type="checkbox" class="drawer-toggle">
   <div class="drawer-content flex flex-col min-h-screen">
