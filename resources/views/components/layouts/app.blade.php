@@ -14,7 +14,10 @@
   @vite($viteAssets)
 </head>
 <body class="bg-base-200"
-      onload="window.appOnLoad({{Auth::id()}}, {{intval(config('services.pusher.beams_enabled'))}})">
+      onload="window.appOnLoad(@js([
+        "userId"=>Auth::id(),
+        "pusherBeamsInstanceId"=> config('services.pusher.beams_enabled') && config('services.pusher.beams_instance_id') ? config('services.pusher.beams_instance_id') : null
+      ]))">
 <div class="drawer lg:drawer-open ">
   <input id="drawer" type="checkbox" class="drawer-toggle">
   <div class="drawer-content flex flex-col min-h-screen">
