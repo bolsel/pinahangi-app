@@ -45,21 +45,15 @@
     </div>
     @if($isHome)
       <div
-        class="from-primary to-secondary text-primary-content -mt-[4rem] grid grid-flow-row-dense place-items-center items-end bg-gradient-to-br pt-20">
+        class="relative from-primary to-secondary text-primary-content -mt-[4rem] grid grid-flow-row-dense place-items-center items-end bg-gradient-to-br pt-20">
+        <img src="{{URL::to('/images/o1.png')}}" class="w-96 h-96 absolute top-0 left-0"/>
+        <img src="{{URL::to('/images/o2.png')}}" class="w-96 h-96 absolute bottom-0 right-0"/>
         <div
-          class="hero-content col-start-1 row-start-1 w-full max-w-6xl flex-col justify-between gap-10 pb-40 lg:flex-row lg:items-end lg:gap-0 xl:gap-20">
+          class="hero-content col-start-1 row-start-1 w-full max-w-6xl flex-col justify-between gap-10 pb-40 lg:flex-row
+        lg:items-end lg:gap-0 xl:gap-20 relative">
           <div class="lg:pb-20 order-last lg:order-first">
             <div class="mb-2 py-4 text-center lg:py-10 lg:text-left">
-              <h1
-                class="font-title mb-4 text-4xl font-extrabold sm:text-5xl lg:text-6xl drop-shadow-[3px_3px_1px_#844ba3]">
-                PINAHANGI</h1>
-              <h2
-                class="font-title text-2xl font-bold sm:text-3xl lg:text-4xl">
-                Aplikasi Informasi
-              </h2>
-              <h2 class="font-title text-xl font-bold sm:text-2xl lg:text-3xl">
-                Humas dan Digitalisasi Informasi
-              </h2>
+              <img src="{{URL::to('/images/pinahangi.png')}}" class="w-[90%] h-32"/>
             </div>
             <div class="mt-4 flex flex-1 justify-center space-x-2 lg:mt-6 lg:justify-start">
               <a href="{{route('frontend.status-permohonan')}}"
@@ -80,12 +74,7 @@
                   </div>
                 </div>
                 <div class="mb-2 text-center italic leading-4">
-                  {{--                <h2 class="font-title text-lg font-extrabold sm:text-xl lg:text-2xl leading-4 block lg:hidden">--}}
-                  {{--                  Pemerintah Kabupaten<br/>Bolaang Mongondow Selatan--}}
-                  {{--                </h2>--}}
-                  {{--                <div class="font-title text-lg font-bold sm:text-xl lg:text-2xl leading-4 mt-2 block lg:hidden">DINAS PENANAMAN MODAL DAN PELAYANAN TERPADU SATU PINTU</div>--}}
                 </div>
-                {{--              <img class="drop-shadow-xl" src="https://si-pinter.bolselkab.go.id/statics/images/sp.bupati.png"/>--}}
               </div>
             </div>
           </div>
