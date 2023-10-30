@@ -62,12 +62,14 @@
             <li>Buka web <strong>{{config('app.name')}}</strong>.</li>
             <li>
               <p>Klik tombol 3 titik pada kanan atas</p>
-              <img class="m-4 rounded-lg w-full max-w-sm" src="{{URL::to('/images/install-android.jpeg')}}"
+              <img alt="Install Android" class="m-4 rounded-lg w-full max-w-sm"
+                   src="{{URL::to('/images/install-android.jpeg')}}"
                    loading="lazy"/>
             </li>
             <li>
               <p>Klik install aplikasi.</p>
-              <img class="m-4 rounded-lg w-full max-w-sm" src="{{URL::to('/images/install-android-2.jpeg')}}"
+              <img alt="Install Android" class="m-4 rounded-lg w-full max-w-sm"
+                   src="{{URL::to('/images/install-android-2.jpeg')}}"
                    loading="lazy"/>
             </li>
           </ul>
@@ -76,11 +78,13 @@
 
             <li>
               <p>Klik icon share</p>
-              <img class="m-4 rounded-lg w-full max-w-sm" src="{{URL::to('/images/install-ios.jpeg')}}" loading="lazy"/>
+              <img alt="Install iOS" class="m-4 rounded-lg w-full max-w-sm"
+                   src="{{URL::to('/images/install-ios.jpeg')}}" loading="lazy"/>
             </li>
             <li>
               <p>Pilih Add to Home Screen.</p>
-              <img class="m-4 rounded-lg w-full max-w-sm" src="{{URL::to('/images/install-ios-2.jpeg')}}"
+              <img alt="Install iOS" class="m-4 rounded-lg w-full max-w-sm"
+                   src="{{URL::to('/images/install-ios-2.jpeg')}}"
                    loading="lazy"/>
             </li>
           </ul>
@@ -88,7 +92,8 @@
             <li>Buka web <strong>{{config('app.name')}}</strong>.</li>
             <li>
               <p>Klik tombol install button pada address bar browser, kemudian klik Install.</p>
-              <img class="m-4 rounded-lg w-full" src="{{URL::to('/images/install-desktop.jpeg')}}" loading="lazy"/>
+              <img alt="Install iOS" class="m-4 rounded-lg w-full" src="{{URL::to('/images/install-desktop.jpeg')}}"
+                   loading="lazy"/>
             </li>
           </ul>
         </div>

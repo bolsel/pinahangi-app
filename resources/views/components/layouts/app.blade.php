@@ -139,15 +139,14 @@
     <label for="drawer" class="drawer-overlay" aria-label="Close menu"></label>
     <aside class="bg-base-100 w-80 border-r h-full">
       <div
-        class="flex flex-col sticky top-0 z-20 items-center gap-2 bg-opacity-90 px-4 py-2 backdrop-blur shadow-sm">
+        class="flex flex-col sticky top-0 z-20 items-center gap-2 bg-opacity-90 px-4 py-2 backdrop-blur shadow-sm
+        ">
         <a href="{{route('app.index')}}" class="flex items-center gap-2">
-          <img alt="logo" src="{{URL::to('/images/logo.png')}}" class="w-8"/>
-          <div class="flex flex-col items-start">
-            <div
-              class="font-intro text-3xl text-primary font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary"> {{config('app.name')}}</div>
+          <div class="flex flex-col items-start bg-gradient-to-r from-primary to-secondary rounded-xl p-2">
+            <img class="w-full" src="{{URL::to('/images/pinahangi.png')}}"/>
+
           </div>
         </a>
-        <div class="hidden lg:flex text-center">{{config('app.name_full')}}</div>
       </div>
 
       <div class="h-4"></div>

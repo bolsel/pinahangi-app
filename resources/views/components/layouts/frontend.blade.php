@@ -21,7 +21,7 @@
       <nav class="navbar max-w-6xl">
         <div class="flex-1 md:gap-1 lg:gap-2 h-full">
           <a href="{{route('frontend.index')}}" class="h-full flex gap-2">
-            <img src="{{URL::to('images/logo.png')}}" class="h-full"/>
+            <img alt="logo" src="{{URL::to('images/logo.png')}}" class="w-auto h-full"/>
             <div class="h-full flex items-center">
               <div class="flex flex-col leading-none">
                 <div class="">
@@ -75,7 +75,8 @@
               <div>
                 <div class="flex justify-center opacity-80 rounded-xl">
                   <div class="w-56 lg:w-72 rounded-xl">
-                    <img class="drop-shadow-[0_1px_3px_#fff]" src="{{URL::to('images/pejabat.png')}}"/>
+                    <img alt="Pejabat" class="h-auto w-auto drop-shadow-[0_1px_3px_#fff]"
+                         src="{{URL::to('images/pejabat.png')}}"/>
                   </div>
                 </div>
                 <div class="mb-2 text-center italic leading-4">

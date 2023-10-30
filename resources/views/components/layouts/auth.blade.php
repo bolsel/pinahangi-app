@@ -13,20 +13,9 @@
 <div class="main-auth">
   <div class="main-auth__side">
     <div class="absolute bg-gradient-to-b from-secondary to-primary opacity-75 inset-0 z-0"></div>
-    <a href="{{route('frontend.index')}}" class="w-full  z-10 flex flex-col items-center">
-      <div class="sm:text-4xl xl:text-5xl font-bold leading-tight mb-6 font-intro">PINAHANGI
-      </div>
-      <div class="text-gray-200 font-normal text-xl tracking-wider">A<strong
-          class="">P</strong>LIKASI
-        <strong
-          class="">IN</strong>FORMASI
-        <strong
-          class="">H</strong>UM<strong
-          class="">A</strong>S DA<strong
-          class="">N</strong>
-        DI<strong
-          class="">G</strong>ITALISASI <strong
-          class="">I</strong>NFORMASI
+    <a href="{{route('frontend.index')}}" class="w-full side-logo  z-10 flex flex-col items-center">
+      <div class="sm:text-4xl xl:text-5xl font-bold leading-tight mb-6 font-intro p-36">
+        <img class="w-full" src="{{URL::to('/images/pinahangi.png')}}"/>
       </div>
     </a>
     <ul class="circles">
