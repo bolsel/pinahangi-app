@@ -59,6 +59,10 @@ Route::group([
         Route::get('/permohonan/telaah', [\App\Http\Controllers\App\PermohonanController::class, 'telaahList'])->name('permohonan.telaah-list');
         Route::get('/permohonan/telaah/{permohonan}', [\App\Http\Controllers\App\PermohonanController::class, 'telaah'])->name('permohonan.telaah');
     });
+    Route::group(['middleware' => 'can:permohonan.verifikasi'], function () {
+        Route::get('/permohonan/verifikasi', [\App\Http\Controllers\App\PermohonanController::class, 'verifikasiList'])->name('permohonan.verifikasi-list');
+        Route::get('/permohonan/verifikasi/{permohonan}', [\App\Http\Controllers\App\PermohonanController::class, 'verifikasi'])->name('permohonan.verifikasi');
+    });
     Route::group(['middleware' => 'can:su'], function () {
         Route::get('/users', \App\Livewire\SystemUser::class)->name('users.index');
         Route::get('/users/form/{id?}', \App\Livewire\SystemUserForm::class)->name('users.form');
@@ -67,8 +71,6 @@ Route::group([
         Route::get('/organisasi/user', \App\Livewire\OrganisasiUser::class)->name('organisasi.user');
         Route::get('/organisasi/user/form/{id?}', \App\Livewire\OrganisasiUserForm::class)->name('organisasi.user.form');
         Route::get('/pemohon', \App\Livewire\PemohonData::class)->name('pemohon.index');
-        Route::get('/permohonan/verifikasi', [\App\Http\Controllers\App\PermohonanController::class, 'verifikasiList'])->name('permohonan.verifikasi-list');
-        Route::get('/permohonan/verifikasi/{permohonan}', [\App\Http\Controllers\App\PermohonanController::class, 'verifikasi'])->name('permohonan.verifikasi');
     });
     Route::group(['middleware' => 'can:roleIsUser'], function () {
         Route::get('/pemohon-identitas-update', \App\Livewire\PemohonUpdateIdentitas::class)->name('pemohon-identitas-update');

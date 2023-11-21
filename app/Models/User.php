@@ -90,7 +90,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function roleIsVerifikasi(): bool
     {
-        return $this->role === self::ROLE_SU;
+        return $this->role === self::ROLE_VERIFIKASI;
     }
 
     public function roleIsUser(): bool
